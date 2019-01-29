@@ -1,0 +1,12 @@
+{
+    "name": "AntiDigital",
+    "version": "0.1",
+    "description": "Dites STOP au digital, vive le numérique !",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+          "matches": ["*://*/*"],
+          "js": ["main.js"]
+        }
+      ]
+}
