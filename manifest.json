@@ -1,6 +1,6 @@
 {
     "name": "AntiDigital",
-    "version": "0.2",
+    "version": "0.3",
     "description": "Dites STOP au digital, vive le numérique !",
     "manifest_version": 2,
     "icons": { 
@@ -13,5 +13,8 @@
 			"matches": ["*://*/*"],
 			"js": ["main.js"]
         }
-	]
+    ],
+    "permissions": [
+        "activeTab"
+    ]
 }

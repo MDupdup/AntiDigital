@@ -2,7 +2,7 @@ let blacklistedSites = [
     "fr.wikipedia.org"
 ];
 
-if(["fr", "fr-FR"].indexOf(document.documentElement.lang) > -1) {
+if(["fr", "fr-FR", "en-FR"].indexOf(document.documentElement.lang) > -1) {
     var textNode;
     var paragraphs = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
 
@@ -22,9 +22,9 @@ if(["fr", "fr-FR"].indexOf(document.documentElement.lang) > -1) {
         while(textNode = paragraphs.nextNode()) {
             words = textNode.nodeValue.split(' ');
             for(var i = 0; i < words.length; i++) {
-                if(words[i+1] !== undefined && ["marketing", "business"].indexOf(words[i+1].toLowerCase()) > -1) {
-                    continue;
-                } else if(new RegExp(['digitale', 'digital', 'digitales', 'digitaux'].join("|")).test(words[i].toLowerCase())) {
+                if(words[i+1] !== undefined && ["marketing", "business", "learning", "painting"].indexOf(words[i+1].toLowerCase()) > -1) continue;
+
+                else if(new RegExp(['digitale', 'digital', 'digitales', 'digitaux'].join("|")).test(words[i].toLowerCase())) {
                     endChar = words[i].split('')[words[i].length-1];
                     if([',', '.', '!', '?', '"', '\''].indexOf(endChar) > -1) {
                         if(words[i].split('')[words[i].length-2] === ".") {
